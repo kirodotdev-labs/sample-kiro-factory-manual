@@ -1,0 +1,16 @@
+{
+  "capabilities": [
+    "pr.open",
+    "pr.update",
+    "pr.ready",
+    "pr.comment",
+    "pr.reply",
+    "pr.resolve_thread",
+    "pr.view",
+    "pr.merge",
+    "checks.read",
+    "checks.rerun",
+    "reviews.read",
+    "branch.push"
+  ]
+}

@@ -1,0 +1,14 @@
+# The run server's Python packages and every dependency, pinned with hashes of the
+# linux aarch64 / CPython 3.12 wheels. To update, `pip download` the new set with
+# --only-binary=:all: --platform manylinux2014_aarch64 --python-version 3.12 and hash each wheel.
+boto3==1.43.110 --hash=sha256:74b811e6def4b30d685d4539a9ead3796f0e03a2112f00134e0f5e583ad8b098
+botocore==1.43.127 --hash=sha256:aa0e3188679a2164a2098a14ea9b59520520cb573aaee9999d852480691e134a
+certifi==2026.11.20 --hash=sha256:7422df25243767b9877031a2248cb14d09ddac9beee846f4cef3d5c9191d488f
+charset-normalizer==3.5.3 --hash=sha256:70f65dd0c2ed79ea2d9776096e9c7d25e398c2c03eb31877753598d201d91784
+idna==3.20 --hash=sha256:ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c
+jmespath==1.1.0 --hash=sha256:a5663118de4908c91729bea0acadca56526eb2698e83de10cd116ae0f4e97c64
+python-dateutil==2.9.0.post0 --hash=sha256:a8b2bc7bffae282281c8140a97d3aa9c14da0b136dfe83f850eea9a5f7470427
+requests==2.32.3 --hash=sha256:70761cfe03c773ceb22aa2f671b4757976145175cdfca038c02654d061d6dcc6
+s3transfer==0.19.3 --hash=sha256:24eb7535804306355e31c952a90022bf5b2f9d760f9a11062c7493a217c08553
+six==1.17.0 --hash=sha256:4721f391ed90541fddacab5acf947aa0d3dc7d27b2e1e8eda2be8970586c3274
+urllib3==2.8.0 --hash=sha256:0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3

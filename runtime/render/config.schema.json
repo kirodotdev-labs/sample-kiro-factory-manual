@@ -1,0 +1,242 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Kiro Factory instance config (factory-config.json)",
+  "description": "Every value specific to one factory instance. Integration-specific fields are validated by each integration's own config.schema.json. Keys starting with '_' are comments and are ignored.",
+  "type": "object",
+  "required": [
+    "_schema",
+    "instance",
+    "repo",
+    "integrations"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "_schema": {
+      "const": 3,
+      "description": "The config format's version. The Manual raises it when it changes a field an existing config sets, so an older config fails the render instead of being read differently."
+    },
+    "instance": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$",
+          "description": "Short id, used in fences and run keys."
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^[^*\\n\\r]*[^*\\s][^*\\n\\r]*\\Z",
+          "description": "The factory's name, in bold in the first line of every post it makes and on its pages. Default: the name, capitalised, then 'Factory'. Later runs find the factory's own posts by that line, so changing it on a live board strands the earlier ones."
+        },
+        "timezone": {
+          "type": "string",
+          "minLength": 1,
+          "description": "The IANA timezone worker schedules are read in, unless a worker sets its own. Default UTC."
+        }
+      }
+    },
+    "repo": {
+      "type": "object",
+      "required": [
+        "slug",
+        "defaultBranch"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "slug": {
+          "type": "string",
+          "pattern": "^[^/\\s]+/[^/\\s]+$",
+          "description": "owner/name on the code host."
+        },
+        "defaultBranch": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "integrations": {
+      "type": "object",
+      "required": [
+        "board",
+        "codehost"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "board": {
+          "$ref": "#/$defs/integration"
+        },
+        "codehost": {
+          "$ref": "#/$defs/integration"
+        },
+        "publishing": {
+          "$ref": "#/$defs/integration"
+        },
+        "harness": {
+          "$ref": "#/$defs/integration"
+        },
+        "notifications": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "feed": {
+              "$ref": "#/$defs/integration"
+            },
+            "operator": {
+              "$ref": "#/$defs/integration"
+            }
+          }
+        }
+      }
+    },
+    "vocabulary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "labels": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "workers": {
+      "type": "object",
+      "description": "Per-worker settings, keyed by worker name. A Manual step's defaults.json gives the defaults; set `enabled` to turn a step on or off, and add a key the Manual does not ship to add an instance worker.",
+      "additionalProperties": {
+        "$ref": "#/$defs/worker"
+      }
+    },
+    "goal": {
+      "type": "string",
+      "minLength": 1,
+      "description": "What the factory is for in this instance, in a few plain sentences. Every agent worker reads it with the instance rules, and learn's page opens with it and that run's assessment against it."
+    },
+    "modules": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9-]*$"
+      },
+      "description": "Modules this instance runs, in order, each given to the render as --module <name>=<dir>. A module adds workers and the skills existing workers load (render.py, Modules)."
+    }
+  },
+  "$defs": {
+    "integration": {
+      "type": "object",
+      "required": [
+        "use"
+      ],
+      "properties": {
+        "use": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*$"
+        }
+      }
+    },
+    "worker": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "schedule": {
+          "type": "string",
+          "description": "Five-field cron expression, read in the worker's timezone."
+        },
+        "timezone": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "timeoutSecs": {
+          "type": "integer",
+          "minimum": 10,
+          "description": "How long one run may take before the runner stops it. At least 60 for an agent worker."
+        },
+        "requires": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "description": {
+          "type": "string"
+        },
+        "implementation": {
+          "enum": [
+            "agent",
+            "script"
+          ],
+          "description": "Which implementation runs: `agent` (a prompt) or `script`."
+        },
+        "script": {
+          "type": "string",
+          "description": "The executable for this worker, under the instance's scripts/. A .py runs with the host's Python. Replaces the Manual's."
+        },
+        "settings": {
+          "type": "object",
+          "description": "Values the worker's implementation reads. Each must be a setting its Manual step's defaults.json, or the module declaring the worker, lists (render.py); an instance's own worker takes any."
+        },
+        "agent": {
+          "type": "string",
+          "description": "The prompt for this worker, relative to the instance directory. Replaces the Manual's."
+        },
+        "skills": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Skills this worker's prompt names as its own, added to the step's. Every skill loads its body only when the prompt or its description calls for it."
+        },
+        "verification": {
+          "type": "array",
+          "description": "Signals the agent gathers before its verification decision, added to the step's defaults. An entry naming a default signal (its skill name or its script file name as defaults.json writes it) with enabled false turns that default off. A new script path is relative to the instance and under scripts/.",
+          "items": {
+            "oneOf": [
+              {
+                "type": "object",
+                "required": [
+                  "skill"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "skill": {
+                    "type": "string"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              },
+              {
+                "type": "object",
+                "required": [
+                  "script"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "script": {
+                    "type": "string"
+                  },
+                  "enabled": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

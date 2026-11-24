@@ -1,0 +1,10 @@
+{
+  "name": "local",
+  "runtime": "local",
+  "paths": {
+    "bundle": "/srv/minimal-factory/bundle",
+    "checkout": "/srv/minimal-factory/repo",
+    "worktreeRoot": "/srv/minimal-factory/worktrees",
+    "stateDir": "/srv/minimal-factory/state"
+  }
+}

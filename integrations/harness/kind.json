@@ -1,0 +1,9 @@
+{
+  "capabilities": [
+    "render",
+    "install",
+    "command",
+    "result"
+  ],
+  "agentFacing": false
+}

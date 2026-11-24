@@ -1,0 +1,17 @@
+{
+  "description": "Publish one page of what waits on a person, the board over time and each worker's health.",
+  "enabled": false,
+  "implementation": "script",
+  "script": "report.py",
+  "requires": [
+    "board",
+    "codehost",
+    "publishing"
+  ],
+  "schedule": "20,50 * * * *",
+  "timeoutSecs": 600,
+  "settings": {
+    "days": 30,
+    "pageKey": "report/index.html"
+  }
+}

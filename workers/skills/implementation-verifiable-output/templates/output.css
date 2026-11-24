@@ -1,0 +1,361 @@
+:root {
+  color-scheme: light;
+  --paper: oklch(97% 0.008 90);
+  --panel: oklch(92% 0.016 90);
+  --ink: oklch(25% 0.02 50);
+  --mute: oklch(44% 0.02 50);
+  --accent: oklch(39% 0.09 35);
+  --line: oklch(77% 0.018 90);
+  --font: 'Optima', 'Candara', 'Segoe UI', sans-serif;
+  --mono: 'SF Mono', 'Consolas', 'Liberation Mono', monospace;
+  --s1: 0.25rem;
+  --s2: 0.5rem;
+  --s3: 0.75rem;
+  --s4: 1rem;
+  --s5: 1.5rem;
+  --s6: 2rem;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  background: var(--paper);
+  color: var(--ink);
+}
+body {
+  margin: 0;
+  min-height: 100dvh;
+  font: 1rem/1.5 var(--font);
+  overflow-wrap: anywhere;
+}
+.page {
+  width: 100%;
+  min-height: 100dvh;
+  container-type: inline-size;
+}
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s5);
+  padding: var(--s5) clamp(var(--s4), 3%, var(--s6));
+}
+.review-body {
+  min-width: 0;
+}
+header {
+  margin-bottom: var(--s4);
+}
+h1 {
+  max-width: 40ch;
+  margin: 0 0 var(--s3);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+  font-weight: 600;
+}
+h2 {
+  margin: 0;
+  font-size: 1.1875rem;
+  line-height: 1.35;
+  font-weight: 600;
+}
+h3 {
+  margin: 0 0 var(--s2);
+  font-size: 1rem;
+}
+p {
+  margin: 0 0 var(--s3);
+}
+p:last-child {
+  margin-bottom: 0;
+}
+.lede {
+  max-width: 78ch;
+  font-size: 1.125rem;
+}
+.brief-panel {
+  align-self: start;
+  min-width: 0;
+  padding: var(--s4);
+  border: 1px solid var(--line);
+  background: var(--panel);
+}
+.brief-panel h2 {
+  font-size: 1rem;
+}
+.brief-meta {
+  margin: var(--s3) 0 0;
+}
+.brief-meta > div {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  gap: var(--s2);
+  padding-block: var(--s1);
+}
+.brief-panel .hint {
+  margin-top: var(--s3);
+  color: var(--mute);
+  font-size: 0.875rem;
+}
+nav {
+  padding-block: var(--s3);
+  border-block: 1px solid var(--line);
+  margin-bottom: var(--s5);
+}
+nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s2) var(--s4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+nav a {
+  display: inline-block;
+  padding-block: var(--s1);
+}
+main {
+  min-width: 0;
+}
+section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--s3) var(--s5);
+  scroll-margin-block: var(--s4);
+}
+section + section {
+  margin-top: var(--s5);
+  padding-top: var(--s5);
+  border-top: 1px solid var(--line);
+}
+.section-body {
+  min-width: 0;
+  max-width: 78ch;
+}
+.comparison {
+  margin: 0;
+}
+.comparison > div {
+  display: grid;
+  grid-template-columns: 5rem minmax(0, 1fr);
+  gap: var(--s3);
+  margin-bottom: var(--s2);
+}
+dt {
+  font-weight: 600;
+}
+dd {
+  margin: 0;
+  min-width: 0;
+}
+code {
+  font: 0.85em/1.5 var(--mono);
+  overflow-wrap: anywhere;
+}
+a {
+  color: var(--accent);
+  text-underline-offset: 0.2em;
+}
+a:hover {
+  text-decoration-thickness: 2px;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+.skip {
+  position: absolute;
+  top: var(--s2);
+  left: var(--s4);
+  transform: translateY(-200%);
+  padding: var(--s2) var(--s4);
+  background: var(--paper);
+  z-index: 1;
+}
+.skip:focus {
+  transform: none;
+}
+.caveat {
+  color: var(--accent);
+}
+details {
+  margin-top: var(--s3);
+}
+summary {
+  cursor: pointer;
+  padding: var(--s2) var(--s3);
+  background: var(--panel);
+  color: var(--accent);
+  font-weight: 600;
+}
+summary::marker {
+  color: var(--accent);
+}
+summary:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.detail-body {
+  padding: var(--s4) var(--s3) var(--s2);
+}
+.detail-body > * + h3 {
+  margin-top: var(--s5);
+}
+ol,
+ul {
+  padding-left: var(--s5);
+}
+.detail-body ol {
+  margin: 0;
+}
+.detail-body li + li {
+  margin-top: var(--s3);
+}
+figure {
+  margin: 0 0 var(--s4);
+}
+.dependency-view {
+  margin-block: var(--s4);
+}
+.dependency-controls {
+  border: 0;
+  margin: 0 0 var(--s3);
+  padding: 0;
+}
+.dependency-controls legend {
+  margin-bottom: var(--s2);
+  font-weight: 600;
+}
+.dependency-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s2);
+  margin-right: var(--s2);
+  padding: var(--s2) var(--s3);
+  border: 1px solid var(--line);
+  cursor: pointer;
+}
+.dependency-controls label:has(input:checked) {
+  background: var(--panel);
+  border-color: var(--accent);
+}
+.dependency-controls label:hover {
+  border-color: var(--accent);
+}
+.dependency-controls input {
+  accent-color: var(--accent);
+}
+.dependency-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.dependency-scroll svg {
+  width: 100%;
+  min-width: 640px;
+  max-width: none;
+}
+.dependency-view .dep-added {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 250ms ease,
+    visibility 250ms;
+}
+.dependency-view:has(.dependency-after:checked) .dep-added {
+  opacity: 1;
+  visibility: visible;
+}
+.dependency-view .dep-absent {
+  fill: var(--mute);
+}
+.dependency-view:has(.dependency-after:checked) .dep-absent {
+  display: none;
+}
+.dependency-view .dep-box {
+  fill: var(--panel);
+  stroke: var(--ink);
+}
+.dependency-view .dep-new-box {
+  stroke: var(--accent);
+}
+.dependency-view .dep-edge {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+.dependency-view .dep-new-edge {
+  stroke: var(--accent);
+  stroke-dasharray: 6 3;
+}
+.dependency-view svg text {
+  font-family: var(--font);
+  font-size: 14px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .dependency-view .dep-added {
+    transition: none;
+  }
+}
+figure svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  color: var(--ink);
+}
+figcaption {
+  margin-top: var(--s2);
+  color: var(--mute);
+  font-size: 0.875rem;
+}
+table {
+  width: 100%;
+  margin-bottom: var(--s3);
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+th,
+td {
+  padding: var(--s2) var(--s3);
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  font-weight: 600;
+}
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  max-width: 100%;
+  padding: var(--s3);
+  background: var(--panel);
+}
+footer {
+  margin-top: var(--s5);
+  color: var(--mute);
+  font-size: 0.875rem;
+}
+@container (min-width: 64rem) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr) 17rem;
+  }
+  .review-body {
+    grid-column: 1;
+    grid-row: 1;
+  }
+  .brief-panel {
+    grid-column: 2;
+    grid-row: 1;
+    position: sticky;
+    top: var(--s4);
+  }
+}
+@container (min-width: 80rem) {
+  section {
+    grid-template-columns: 10.5rem minmax(0, 1fr);
+  }
+}
+@media (max-height: 44rem) {
+  .brief-panel {
+    position: static;
+  }
+}

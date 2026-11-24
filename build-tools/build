@@ -1,0 +1,20 @@
+#!/bin/bash
+# Publish what a build that consumes the Manual as an artifact needs, to public/: the directories
+# render.py reads, the setup skill, the license, and the commit they came from. The `test` target
+# also runs the Manual's tests.
+set -o errexit -o nounset -o pipefail
+
+cd "$(dirname "$0")/.."
+
+rm -rf public
+mkdir -p public
+for d in runtime workers integrations hosting examples factory-setup; do
+  rsync -a --exclude '__pycache__' --exclude '*.pyc' --exclude node_modules --exclude cdk.out "$d" public/
+done
+cp README.md LICENSE public/
+# render.py stamps this into each bundle's manifest.json; a published copy has no .git to ask.
+git rev-parse HEAD > public/COMMIT 2> /dev/null || echo unknown > public/COMMIT
+
+if [[ "${1:-}" == "test" ]]; then
+  python3 -m unittest discover -s tests
+fi

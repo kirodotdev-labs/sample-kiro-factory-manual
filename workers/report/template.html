@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  {{style}}
+</head>
+<body>
+  <header class="top">
+    <div>
+      <h1 id="name"></h1>
+      <p class="muted" id="updated"></p>
+    </div>
+    <div class="pills" id="summary"></div>
+  </header>
+
+  <noscript><p class="note">This page draws itself with JavaScript; turn it on to see the report.</p></noscript>
+
+  <main>
+    <section class="card" aria-labelledby="act-h">
+      <h2 id="act-h">Act on</h2>
+      <p class="muted lede">Items waiting on a person: a requester's answer or a review.</p>
+      <ul class="act" id="act"></ul>
+    </section>
+
+    <section class="card" aria-labelledby="board-h">
+      <h2 id="board-h">Board</h2>
+      <div class="columns" id="columns"></div>
+      <figure class="chart">
+        <svg id="chart" viewBox="0 0 900 200" role="img" aria-labelledby="chart-cap"></svg>
+        <figcaption class="muted" id="chart-cap"></figcaption>
+      </figure>
+    </section>
+
+    <section class="card" aria-labelledby="health-h">
+      <h2 id="health-h">Health</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Worker</th><th>State</th><th>Last run</th><th>Last success</th><th>Last error</th></tr></thead>
+          <tbody id="health"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <div id="notes"></div>
+  </main>
+
+  <template id="act-row">
+    <li><a class="item"></a> <span class="title"></span> <span class="why"></span> <a class="pr"></a></li>
+  </template>
+
+  <script type="application/json" id="model">{{model}}</script>
+  {{script}}
+</body>
+</html>

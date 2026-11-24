@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <base target="_blank" />
+    <title>REPLACE_TITLE · Implementation verifiable output</title>
+    <link rel="stylesheet" href="implementation.css" />
+  </head>
+  <body>
+    <!-- Summaries are the review surface; disclosures hold supporting evidence, never the only mention of a risk. -->
+    <a class="skip" href="#review-context" target="_self">Skip to review</a>
+    <div class="page">
+      <div class="layout">
+        <aside class="brief-panel" aria-labelledby="brief-heading">
+          <h2 id="brief-heading">REPLACE_BRIEF_NAME</h2>
+          <dl class="brief-meta">
+            <div>
+              <dt>Diff</dt>
+              <dd>REPLACE_FILE_COUNT files · +REPLACE_ADDITIONS / −REPLACE_DELETIONS</dd>
+            </div>
+          </dl>
+          <p class="hint">Describes the change as authored; later commits may differ.</p>
+        </aside>
+        <div class="review-body">
+          <header>
+            <h1>REPLACE_TITLE</h1>
+            <p class="lede">REPLACE_INTENT_AND_OBSERVABLE_CHANGE</p>
+          </header>
+          <nav aria-label="Review sections">
+            <ul>
+              <li><a href="#review-context" target="_self">At a glance</a></li>
+              <li><a href="#need" target="_self">Why this is needed</a></li>
+              <li><a href="#decisions" target="_self">Decisions</a></li>
+              <li><a href="#invariants" target="_self">Key areas</a></li>
+              <li><a href="#size" target="_self">Complexity and scope</a></li>
+              <li><a href="#implementation" target="_self">Implementation</a></li>
+              <li><a href="#testing" target="_self">Testing</a></li>
+            </ul>
+          </nav>
+          <main>
+            <!-- Omit inapplicable sections and their navigation entries. Keep uncertain but relevant areas for author clarification. -->
+            <section id="review-context" tabindex="-1" aria-labelledby="context-heading">
+              <h2 id="context-heading">At a glance</h2>
+              <div class="section-body">
+                <dl class="comparison">
+                  <div>
+                    <dt>Before</dt>
+                    <dd>REPLACE_BEFORE</dd>
+                  </div>
+                  <div>
+                    <dt>After</dt>
+                    <dd>REPLACE_AFTER</dd>
+                  </div>
+                  <div>
+                    <dt>Unchanged</dt>
+                    <dd>REPLACE_UNCHANGED_BOUNDARY</dd>
+                  </div>
+                </dl>
+                <p class="caveat"><strong>Areas of note:</strong> REPLACE_AREAS_OF_NOTE</p>
+              </div>
+            </section>
+            <section id="need" aria-labelledby="need-heading">
+              <h2 id="need-heading">Why is this needed at all?</h2>
+              <div class="section-body">
+                <p>REPLACE_PROBLEM_WHO_BENEFITS_AND_COST_OF_NO_CHANGE</p>
+                <p>REPLACE_RELEVANT_UPSTREAM_CONTEXT</p>
+                <details>
+                  <summary>Requirements, design review, and supporting evidence</summary>
+                  <div class="detail-body">
+                    <p>REPLACE_TASK_REQUIREMENTS_AND_PROJECT_CONTEXT_OR_INLINE_TRACKING_ONLY_OR_NONE</p>
+                    <p>REPLACE_DOCUMENT_LINKS_REVIEW_EVIDENCE_AND_SUPPORT_FOR_NEED_VS_APPROACH_OR_NONE_AVAILABLE</p>
+                  </div>
+                </details>
+              </div>
+            </section>
+            <section id="decisions" aria-labelledby="decisions-heading">
+              <h2 id="decisions-heading">Decisions and alternatives</h2>
+              <div class="section-body">
+                <!-- Use recorded decisions and alternatives; omit unsupported or irrelevant entries. -->
+                <h3>REPLACE_WHAT_WAS_DECIDED</h3>
+                <p>REPLACE_CHOSEN_APPROACH_AND_ACCEPTED_COST</p>
+                <details>
+                  <summary>Alternatives weighed for this decision</summary>
+                  <div class="detail-body">
+                    <p>REPLACE_RECORDED_ALTERNATIVES_AND_RATIONALE</p>
+                  </div>
+                </details>
+              </div>
+            </section>
+            <!-- One h3 per instance invariant that might bear on the change: holds, at risk, or does not apply. -->
+            <section id="invariants" aria-labelledby="invariants-heading">
+              <h2 id="invariants-heading">Key areas and invariants</h2>
+              <div class="section-body">
+                <h3>REPLACE_APPLICABLE_AREA_NAME</h3>
+                <p>REPLACE_WHAT_THIS_CHANGE_DOES_TO_THE_AREA_AND_WHETHER_THE_INVARIANT_HOLDS</p>
+                <p class="caveat">REPLACE_DELIBERATE_EXCEPTION_OR_UNCHECKED_RISK_OR_DELETE_THIS_LINE</p>
+                <details>
+                  <summary>Evidence for this area</summary>
+                  <div class="detail-body">
+                    <p>REPLACE_SOURCE_GATE_OR_TEST_EVIDENCE_AT_THE_PINNED_REVISION</p>
+                  </div>
+                </details>
+              </div>
+            </section>
+            <section id="size" aria-labelledby="size-heading">
+              <h2 id="size-heading">Complexity and scope</h2>
+              <div class="section-body">
+                <p>REPLACE_STRUCTURAL_CHANGE_MEASURED_REACH_AND_INTERPRETATION</p>
+                <p class="caveat">REPLACE_MATERIAL_ANALYSIS_LIMITS_OR_BOUNDARY_CONCERNS</p>
+                <table>
+                  <caption>
+                    Measured reach · REPLACE_SCOPE_AND_EXCLUSIONS
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Area</th>
+                      <th scope="col">Files</th>
+                      <th scope="col">Added / removed lines</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">REPLACE_AREA</th>
+                      <td>REPLACE_AREA_FILE_COUNT</td>
+                      <td>REPLACE_AREA_LINE_COUNTS</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <!-- Replace this example with the actual dependency change, or omit it when unhelpful. -->
+                <div class="dependency-view">
+                  <fieldset class="dependency-controls">
+                    <legend>Dependency change · REPLACE_GRAPH_SCOPE</legend>
+                    <label><input type="radio" name="dependency-snapshot" value="before" checked /> Before</label>
+                    <label
+                      ><input type="radio" name="dependency-snapshot" value="after" class="dependency-after" />
+                      After</label
+                    >
+                  </fieldset>
+                  <figure>
+                    <div
+                      class="dependency-scroll"
+                      tabindex="0"
+                      role="region"
+                      aria-label="Scrollable before and after dependency diagram"
+                    >
+                      <svg viewBox="0 0 680 190" role="img" aria-labelledby="dependency-title dependency-description">
+                        <title id="dependency-title">REPLACE_DEPENDENCY_DIAGRAM_TITLE</title>
+                        <desc id="dependency-description">REPLACE_BOTH_STATES_AND_EDGE_KINDS_TEXT_EQUIVALENT</desc>
+                        <defs>
+                          <marker
+                            id="dependency-arrow"
+                            viewBox="0 0 10 10"
+                            refX="9"
+                            refY="5"
+                            markerWidth="6"
+                            markerHeight="6"
+                            orient="auto"
+                          >
+                            <path d="M0 0l10 5-10 5z" fill="var(--ink)" />
+                          </marker>
+                        </defs>
+                        <path class="dep-edge" d="M120 82 C120 12 560 12 560 82" marker-end="url(#dependency-arrow)" />
+                        <text x="340" y="22" text-anchor="middle" fill="var(--mute)">REPLACE_UNCHANGED_EDGE_LABEL</text>
+                        <rect class="dep-box" x="20" y="82" width="200" height="58" rx="4" />
+                        <rect class="dep-box" x="460" y="82" width="200" height="58" rx="4" />
+                        <g fill="var(--ink)" text-anchor="middle">
+                          <text x="120" y="116">REPLACE_IMPORTER</text>
+                          <text x="560" y="116">REPLACE_DEPENDENCY</text>
+                        </g>
+                        <text class="dep-absent" x="340" y="116" text-anchor="middle">Absent before</text>
+                        <g class="dep-added">
+                          <rect class="dep-box dep-new-box" x="250" y="82" width="180" height="58" rx="4" />
+                          <text x="340" y="116" text-anchor="middle" fill="var(--ink)">REPLACE_ADDED_MODULE</text>
+                          <path class="dep-edge dep-new-edge" d="M220 111 H250" marker-end="url(#dependency-arrow)" />
+                          <path class="dep-edge dep-new-edge" d="M430 111 H460" marker-end="url(#dependency-arrow)" />
+                          <text x="340" y="166" text-anchor="middle" fill="var(--accent)">
+                            REPLACE_ADDED_EDGE_KIND_AND_LABEL
+                          </text>
+                        </g>
+                      </svg>
+                    </div>
+                    <figcaption>
+                      REPLACE_GRAPH_TAKEAWAY_AND_VERIFIED_SOURCE_LINKS · Arrows mean imports, not call order.
+                    </figcaption>
+                  </figure>
+                </div>
+                <details>
+                  <summary>Analysis method, raw measurements, and edge evidence</summary>
+                  <div class="detail-body">
+                    <p>REPLACE_ANALYZER_COMMAND_VERSION_OR_SHA256_AND_PINNED_RANGE</p>
+                    <p>REPLACE_HEURISTIC_LIMITS_GRAPH_EXTRACTION_SCOPE_AND_VERIFIED_EDGE_LINKS</p>
+                    <pre><code>REPLACE_ESCAPED_VERBATIM_ANALYZER_JSON_OR_FAILURE</code></pre>
+                  </div>
+                </details>
+                <h3>Scope</h3>
+                <p>REPLACE_SCOPE_AND_RECORDED_RATIONALE</p>
+              </div>
+            </section>
+            <section id="implementation" aria-labelledby="implementation-heading">
+              <h2 id="implementation-heading">Implementation walkthrough</h2>
+              <div class="section-body">
+                <!-- With a Visual Walkthrough tab, replace this body with one sentence on the overall change and a link to the tab. -->
+                <dl class="comparison">
+                  <div>
+                    <dt>Before</dt>
+                    <dd>REPLACE_BEFORE_REPRESENTATION</dd>
+                  </div>
+                  <div>
+                    <dt>After</dt>
+                    <dd>REPLACE_AFTER_REPRESENTATION</dd>
+                  </div>
+                </dl>
+                <p>REPLACE_SHORT_CHANGE_DESCRIPTION</p>
+                <p class="caveat">REPLACE_MATERIAL_BOUNDARY_OR_LIMITATION_OR_OMIT</p>
+                <details>
+                  <summary>Supporting code</summary>
+                  <div class="detail-body">
+                    <pre><code>REPLACE_ESCAPED_SUPPORTING_DIFF</code></pre>
+                    <p>REPLACE_SOURCE_LINKS</p>
+                  </div>
+                </details>
+              </div>
+            </section>
+            <section id="testing" aria-labelledby="testing-heading">
+              <h2 id="testing-heading">Testing and confidence</h2>
+              <div class="section-body">
+                <!-- Every verification signal from this run, including ones that are pending or did not run. -->
+                <table>
+                  <caption>Verification readings · head REPLACE_HEAD_SHA</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Signal</th>
+                      <th scope="col">Head read</th>
+                      <th scope="col">Reading</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">REPLACE_SIGNAL</th>
+                      <td>REPLACE_SHA_OR_NOT_RUN</td>
+                      <td>REPLACE_PASS_PENDING_FAIL_AND_ONE_LINE</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p>REPLACE_QUALITATIVE_CONFIDENCE_AND_OBSERVED_VS_REPORTED_EVIDENCE_STATUS</p>
+                <p class="caveat">
+                  <strong>Blind spots:</strong> REPLACE_MATERIAL_FAILURES_NOT_RUN_CHECKS_AND_RESIDUAL_RISK
+                </p>
+                <details>
+                  <summary>Test results, assertions, and fixture limitations</summary>
+                  <div class="detail-body">
+                    <p>REPLACE_VERIFICATION_EVIDENCE_AND_LIMITATIONS</p>
+                  </div>
+                </details>
+              </div>
+            </section>
+          </main>
+          <footer>
+            <p>An account of the change, made from its verification readings. Independent code review still applies.</p>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

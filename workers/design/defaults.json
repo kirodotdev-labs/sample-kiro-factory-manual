@@ -1,0 +1,17 @@
+{
+  "description": "Promote, merge and submit every ready spec; author, revise or sync one per run.",
+  "implementation": "agent",
+  "agent": "prompt.md",
+  "requires": [
+    "board",
+    "codehost",
+    "publishing"
+  ],
+  "schedule": "5,35 * * * *",
+  "timeoutSecs": 1800,
+  "verification": [
+    {"script": "ci_green.py"},
+    {"skill": "reviews-converged"},
+    {"skill": "agent-review"}
+  ]
+}

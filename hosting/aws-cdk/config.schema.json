@@ -1,0 +1,16 @@
+{
+  "description": "this host keeps run records and leases in the publishing bucket, so integrations.publishing must name a bucket and its region (the s3 integration does).",
+  "type": "object",
+  "properties": {
+    "integrations": {
+      "type": "object",
+      "required": ["publishing"],
+      "properties": {
+        "publishing": {
+          "type": "object",
+          "required": ["bucket", "region"]
+        }
+      }
+    }
+  }
+}

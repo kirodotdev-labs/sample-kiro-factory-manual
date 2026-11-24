@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "required": [
+    "dir"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "dir": {
+      "type": "string",
+      "description": "Directory the pages are written under. Keep it outside the bundle, which every render deletes.",
+      "minLength": 1
+    },
+    "baseUrl": {
+      "type": "string",
+      "description": "URL the directory is served at, ending in /, or empty for its file:// URL.",
+      "default": ""
+    }
+  }
+}

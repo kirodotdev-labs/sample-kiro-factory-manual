@@ -1,0 +1,21 @@
+{
+  "_README": "The kiro-cli agent each agent worker runs as. The harness's render writes one per worker into the bundle as agents/<worker>.json, named <agent>-<worker>, with the worker's context as file:// resources, its skills as skill:// resources and the renderer's MCP servers, and its install copies the worker's to ~/.kiro/agents/<agent>-<worker>.json (under $KIRO_HOME when that is set). Resources hold only what the render gives the worker. kiro-cli still loads the running user's ~/.kiro/steering, so a host keeps personal steering out by running the factory under a HOME of its own. The permissions block is the V3 agent format: without it, a kiro-cli whose chat.enableAutoAgentUpgrade is unset (any fresh HOME) treats the agent as needing an upgrade and a headless run exits.",
+  "name": "kiro-factory",
+  "description": "Kiro Factory worker. Runs one rendered prompt per invocation.",
+  "tools": [
+    "*"
+  ],
+  "allowedTools": [
+    "*"
+  ],
+  "permissions": {
+    "rules": [
+      {
+        "capability": "all",
+        "effect": "allow"
+      }
+    ]
+  },
+  "resources": [],
+  "mcpServers": {}
+}

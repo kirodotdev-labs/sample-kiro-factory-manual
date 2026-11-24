@@ -1,0 +1,12 @@
+{
+  "name": "aws-cdk",
+  "runtime": "aws-cdk",
+  "paths": {
+    "bundle": "/opt/factory",
+    "checkout": "/tmp/factory/repo",
+    "worktreeRoot": "/tmp/factory/worktrees",
+    "stateDir": "/tmp/factory/state",
+    "python": "python3.12"
+  },
+  "integrationOverrides": {}
+}

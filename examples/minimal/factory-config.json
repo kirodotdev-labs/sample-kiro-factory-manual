@@ -1,0 +1,27 @@
+{
+  "_README": "The smallest instance that renders: a GitHub board and code host on one repo, pages on disk, no notifications. Every step runs as the Manual ships it. Render it with hosts/local.json.",
+  "_schema": 3,
+  "instance": {
+    "name": "minimal"
+  },
+  "repo": {
+    "slug": "example-org/example-repo",
+    "defaultBranch": "main"
+  },
+  "integrations": {
+    "board": {
+      "use": "github",
+      "boardId": "example-org/example-repo",
+      "scopeLabel": "factory",
+      "botLogins": ["example-factory"]
+    },
+    "codehost": {
+      "use": "github",
+      "botLogins": ["example-factory"]
+    },
+    "publishing": {
+      "use": "disk",
+      "dir": "/srv/minimal-factory/pages"
+    }
+  }
+}

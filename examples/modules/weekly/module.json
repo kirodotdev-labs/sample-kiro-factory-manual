@@ -1,0 +1,22 @@
+{
+  "_README": "An example module: a script worker, an agent worker, and a context file and a skill for the Manual's triage step. The README's Modules section explains each part. Turn it on with \"modules\": [\"weekly\"] in an instance's config and --module weekly=examples/modules/weekly on the render.",
+  "workers": {
+    "weekly-summary": {
+      "implementation": "script",
+      "script": "workers/weekly-summary/summary.py",
+      "schedule": "0 9 * * 1",
+      "requires": ["board"],
+      "settings": {"maxItems": 20}
+    },
+    "weekly-notes": {
+      "implementation": "agent",
+      "agent": "prompts/weekly-notes.md",
+      "schedule": "0 10 * * 1",
+      "requires": ["board"]
+    },
+    "triage": {
+      "context": ["context/summary-lines.md"],
+      "skills": ["summary-tags"]
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "_README": "Host profile for running workers on your own machine. Replace each <...> with an absolute path (the render refuses a placeholder) and pass the file to runtime/render/render.py --host, with --out set to paths.bundle. Run one worker with `python3 <bundle>/scripts/runtime/run_worker.py <worker>`; factory-setup/references/hosting-local.md says how to schedule it.",
+  "name": "local",
+  "runtime": "local",
+  "paths": {
+    "bundle": "<factory home>/bundle",
+    "checkout": "<a clone of the repo>",
+    "worktreeRoot": "<factory home>/worktrees",
+    "stateDir": "<factory home>/state",
+    "python": "python3"
+  },
+  "_env": "The variables a run keeps from the shell or scheduler that starts it; everything else is dropped. Add what the board and publishing configs name and what the repo's build reads.",
+  "env": ["KIRO_API_KEY", "GH_TOKEN"]
+}

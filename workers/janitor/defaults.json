@@ -1,0 +1,13 @@
+{
+  "description": "Release abandoned claims and close stale needs-info items.",
+  "implementation": "script",
+  "script": "janitor.py",
+  "requires": [
+    "board"
+  ],
+  "schedule": "12,42 * * * *",
+  "timeoutSecs": 300,
+  "settings": {
+    "maxBoardItems": 200
+  }
+}

@@ -1,0 +1,3 @@
+- Never run the e2e suite against the production environment.
+- Changes under `api/` need a changelog entry in `CHANGELOG.md`.
+- The `legacy/` directory is frozen. Route items that need a change there to the spec route.

@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "required": [
+    "webhookFile"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "webhookFile": {
+      "type": "string",
+      "description": "Path to an untracked file holding only the webhook URL."
+    }
+  }
+}

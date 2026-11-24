@@ -1,0 +1,12 @@
+{
+  "description": "Assess each released change against production telemetry and say when the answer is settled.",
+  "enabled": false,
+  "implementation": "agent",
+  "agent": "prompt.md",
+  "requires": [
+    "board",
+    "codehost"
+  ],
+  "schedule": "37 8 * * *",
+  "timeoutSecs": 1800
+}

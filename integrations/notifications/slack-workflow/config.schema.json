@@ -1,0 +1,18 @@
+{
+  "type": "object",
+  "required": [
+    "webhookFile",
+    "payloadVariable"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "webhookFile": {
+      "type": "string",
+      "description": "Path to an untracked file holding only the webhook URL. Never the URL itself."
+    },
+    "payloadVariable": {
+      "type": "string",
+      "description": "Variable name declared on the Workflow Builder trigger, case-sensitive."
+    }
+  }
+}

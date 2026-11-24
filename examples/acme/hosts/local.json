@@ -1,0 +1,11 @@
+{
+  "name": "local",
+  "runtime": "local",
+  "paths": {
+    "bundle": "/srv/acme-factory/bundle",
+    "checkout": "/srv/acme-factory/repo",
+    "worktreeRoot": "/srv/acme-factory/worktrees",
+    "stateDir": "/srv/acme-factory/state",
+    "python": "python3"
+  }
+}

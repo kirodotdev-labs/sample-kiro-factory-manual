@@ -1,0 +1,12 @@
+{
+  "description": "Find where humans corrected the factory's work, trace it through the history of the same code, and propose where each lesson belongs, as a patch for the instance.",
+  "implementation": "agent",
+  "agent": "prompt.md",
+  "requires": [
+    "board",
+    "codehost",
+    "publishing"
+  ],
+  "schedule": "25 16 * * 5",
+  "timeoutSecs": 6000
+}

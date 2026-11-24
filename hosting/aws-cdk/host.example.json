@@ -1,0 +1,13 @@
+{
+  "_README": "Host profile for the AWS host: one Lambda MicroVM per worker run. The Manual runs this host's storage module only (hosting/aws-cdk/history.py); factory-setup/references/hosting-aws.md is the guide to the infrastructure, and factory-setup/references/aws-cdk/ a reference CDK app to copy. The image installs the bundle at paths.bundle. For a webhook notification channel, the run server writes the webhook from Secrets Manager to /tmp/factory/secrets/feed-webhook: set that as the channel's webhookFile under integrationOverrides.notifications. An env list must name AWS_CONFIG_FILE: every AWS call in a run goes through the config it points at.",
+  "name": "aws-cdk",
+  "runtime": "aws-cdk",
+  "paths": {
+    "bundle": "/opt/factory",
+    "checkout": "/tmp/factory/repo",
+    "worktreeRoot": "/tmp/factory/worktrees",
+    "stateDir": "/tmp/factory/state",
+    "python": "python3.12"
+  },
+  "integrationOverrides": {}
+}

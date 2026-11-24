@@ -1,0 +1,9 @@
+{
+  "capabilities": [
+    "post"
+  ],
+  "channels": [
+    "feed",
+    "operator"
+  ]
+}

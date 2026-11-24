@@ -1,0 +1,22 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "botLogins": {
+      "type": "array",
+      "description": "The logins the factory posts as, such as acme-factory. Their comments count as the team's; other bots' are machine findings.",
+      "default": [],
+      "items": {"type": "string", "minLength": 1}
+    },
+    "teamLogins": {
+      "type": "array",
+      "description": "The people who direct the factory. When set, only their reviews and comments and the factory's own count as the team's, in place of GitHub's OWNER, MEMBER and COLLABORATOR associations. Set it when organization membership is wider than the team.",
+      "default": [],
+      "items": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*\\Z"}
+    },
+    "host": {
+      "type": "string",
+      "description": "GitHub hostname, default github.com."
+    }
+  }
+}

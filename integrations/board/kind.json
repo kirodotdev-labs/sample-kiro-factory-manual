@@ -1,0 +1,14 @@
+{
+  "capabilities": [
+    "list",
+    "get",
+    "comment",
+    "update_comment",
+    "add_labels",
+    "remove_labels",
+    "move",
+    "close",
+    "update",
+    "create"
+  ]
+}

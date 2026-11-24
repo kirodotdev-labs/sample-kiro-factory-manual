@@ -1,0 +1,18 @@
+{
+  "_README": "The factory's labels with their defaults. Prompts write {{label.<key>}}; an instance renames any value in its config under vocabulary.labels to match labels its board already has. Keys are fixed: a rename changes the value, never the key.",
+  "labels": {
+    "claim": "Working",
+    "groomed": "Groomed",
+    "fastTrack": "Fast Track",
+    "spec": "Spec",
+    "needsInfo": "Needs Info",
+    "released": "Released",
+    "monitoringComplete": "Monitoring Complete",
+    "discovered": "Discovered",
+    "riskVeryLow": "Risk: Very Low",
+    "riskLow": "Risk: Low",
+    "riskMedium": "Risk: Medium",
+    "riskHigh": "Risk: High",
+    "riskVeryHigh": "Risk: Very High"
+  }
+}

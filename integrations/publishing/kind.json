@@ -1,0 +1,7 @@
+{
+  "capabilities": [
+    "put_page",
+    "put_asset",
+    "get_page"
+  ]
+}

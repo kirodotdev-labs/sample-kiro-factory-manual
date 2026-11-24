@@ -1,0 +1,8 @@
+# Platform names that belong in integrations/ and hosting/, never in a prompt, workers/common/ or a
+# worker script. A step names a capability (board.list, codehost.pr.open); the integration's skill
+# says how.
+GitHub
+gh
+S3
+CloudFront
+Slack

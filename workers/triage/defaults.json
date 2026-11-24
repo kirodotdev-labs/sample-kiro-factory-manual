@@ -1,0 +1,14 @@
+{
+  "description": "Triage one untriaged item per run and route it.",
+  "implementation": "agent",
+  "agent": "prompt.md",
+  "requires": [
+    "board",
+    "codehost"
+  ],
+  "schedule": "10,40 * * * *",
+  "timeoutSecs": 1800,
+  "settings": {
+    "needsInfoDays": 5
+  }
+}

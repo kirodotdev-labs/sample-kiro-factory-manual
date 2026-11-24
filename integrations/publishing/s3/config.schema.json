@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "required": [
+    "bucket",
+    "baseUrl",
+    "region"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "bucket": {
+      "type": "string",
+      "description": "Pages bucket.",
+      "minLength": 1
+    },
+    "prefix": {
+      "type": "string",
+      "description": "Key prefix inside the bucket, or empty."
+    },
+    "baseUrl": {
+      "type": "string",
+      "description": "URL the bucket is served at, ending in /.",
+      "pattern": "^https://.*/$"
+    },
+    "region": {
+      "type": "string",
+      "description": "Bucket region."
+    },
+    "profile": {
+      "type": "string",
+      "description": "AWS profile to publish with, or empty for the host's own role."
+    }
+  }
+}

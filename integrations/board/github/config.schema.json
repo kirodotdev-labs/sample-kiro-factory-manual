@@ -1,0 +1,47 @@
+{
+  "type": "object",
+  "required": [
+    "boardId",
+    "scopeLabel"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "boardId": {
+      "type": "string",
+      "description": "The repo whose issues are the board, as owner/name. It may differ from the code host's repo, for example a private tracker for public code.",
+      "pattern": "^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$"
+    },
+    "scopeLabel": {
+      "type": "string",
+      "description": "The label that puts an issue on the board. Every list is limited to it. People with triage access can add it, and so can an issue template or a workflow that names it, so keep it out of both.",
+      "minLength": 1
+    },
+    "columns": {
+      "type": "object",
+      "description": "The label that records each factory column. Each is optional: a column without a label is not recorded on the board, and the steps work without it.",
+      "default": {},
+      "additionalProperties": false,
+      "properties": {
+        "intake": {"type": "string", "minLength": 1},
+        "review": {"type": "string", "minLength": 1},
+        "release": {"type": "string", "minLength": 1}
+      }
+    },
+    "botLogins": {
+      "type": "array",
+      "description": "The logins the factory posts as, such as acme-factory. Their comments count as the team's; other bots' do not.",
+      "default": [],
+      "items": {"type": "string", "minLength": 1}
+    },
+    "teamLogins": {
+      "type": "array",
+      "description": "The people who direct the factory. When set, only their posts and the factory's own count as the team's, in place of GitHub's OWNER, MEMBER and COLLABORATOR associations. Set it when organization membership is wider than the team.",
+      "default": [],
+      "items": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*\\Z"}
+    },
+    "host": {
+      "type": "string",
+      "description": "GitHub hostname, default github.com."
+    }
+  }
+}

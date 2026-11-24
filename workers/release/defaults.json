@@ -1,0 +1,17 @@
+{
+  "description": "Follow merged items until they are released, then close them.",
+  "implementation": "agent",
+  "agent": "prompt.md",
+  "requires": [
+    "board",
+    "codehost"
+  ],
+  "schedule": "17,47 * * * *",
+  "timeoutSecs": 1800,
+  "settings": {
+    "channels": []
+  },
+  "verification": [
+    {"skill": "risk"}
+  ]
+}

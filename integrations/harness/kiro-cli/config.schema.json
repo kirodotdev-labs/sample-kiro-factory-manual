@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "required": [],
+  "additionalProperties": false,
+  "properties": {
+    "binary": { "type": "string", "description": "The kiro-cli executable. Default kiro-cli." },
+    "agent": { "type": "string", "description": "The prefix of each worker's agent name, <agent>-<worker>. Default kiro-factory." },
+    "model": { "type": "string", "description": "Model id when a worker sets none." },
+    "extraArgs": { "type": "array", "items": { "type": "string" }, "description": "Appended to every kiro-cli chat argv." }
+  }
+}

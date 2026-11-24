@@ -1,0 +1,9 @@
+__pycache__/
+
+# Build output; build-tools/build writes public/.
+/build
+/public
+
+# A local install or synth of the reference CDK app.
+node_modules/
+cdk.out/

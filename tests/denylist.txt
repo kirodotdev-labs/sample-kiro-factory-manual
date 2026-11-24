@@ -1,0 +1,6 @@
+# Names of real projects, products, deployments and people the Manual must never carry.
+# The Manual ships this list empty: a factory adds its own names in a tests/denylist-<name>.txt
+# beside it, or in files outside the Manual that FACTORY_DENYLIST names, separated by the
+# platform's path separator. One term per line, matched case-insensitively as a whole word.
+# examples/ and tests/ are not scanned. 'term @dir' allows the term under that top-level directory
+# only (the agent runtime a hosting skill installs is a host detail, not a project name).

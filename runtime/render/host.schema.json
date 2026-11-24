@@ -1,0 +1,61 @@
+{
+  "title": "Factory host profile",
+  "description": "Where one host keeps the bundle and its working directories, and what it changes in the instance. Keys starting with _ are notes.",
+  "type": "object",
+  "required": ["name", "paths"],
+  "additionalProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "The host's name, recorded in the bundle's manifest."
+    },
+    "runtime": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Which hosting/<runtime>/history.py keeps this host's run records and leases. Defaults to the name."
+    },
+    "paths": {
+      "type": "object",
+      "description": "Paths on the machine that runs the bundle, written into prompts as {{host.<key>}}. A profile may add its own. The checkout, worktree root and state directory are kept beside the bundle, never inside it: every render replaces the bundle.",
+      "required": ["bundle", "checkout", "worktreeRoot", "stateDir"],
+      "additionalProperties": {"type": "string"},
+      "properties": {
+        "bundle": {
+          "type": "string",
+          "description": "Where the bundle is installed, as an absolute path: the harness config and the prompts carry it as written."
+        },
+        "checkout": {
+          "type": "string",
+          "description": "A clone of the repo that the factory owns. Agent workers run in it."
+        },
+        "worktreeRoot": {
+          "type": "string",
+          "description": "Where workers create git worktrees."
+        },
+        "stateDir": {
+          "type": "string",
+          "description": "Where a worker keeps state between runs, and where the local host keeps run records and leases."
+        },
+        "python": {
+          "type": "string",
+          "description": "The Python that runs the bundle's scripts. Defaults to python3."
+        }
+      }
+    },
+    "env": {
+      "type": "array",
+      "description": "The environment variables a run keeps, by name, on top of PATH, HOME, USER, LOGNAME, SHELL, LANG, LC_*, TMPDIR, TZ, every FACTORY_* and those the harness declares. List what the agent's credentials, the code host CLI, the integrations and the repo's build read, such as KIRO_API_KEY, GH_TOKEN, AWS_PROFILE or AWS_REGION, SSH_AUTH_SOCK and a toolchain's JAVA_HOME. Without this key a run keeps the whole environment it is started in.",
+      "items": {"type": "string", "pattern": "^[A-Za-z_][A-Za-z0-9_]*\\Z"}
+    },
+    "integrationOverrides": {
+      "type": "object",
+      "description": "Integration values merged over the instance's, for what only this host has, such as a secret file's path."
+    },
+    "workerOverrides": {
+      "type": "object",
+      "description": "Per-worker values merged over the instance's, such as a schedule. A worker the instance does not have is skipped.",
+      "additionalProperties": {"type": "object"}
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "description": "Build or converge one item per run, from no code to a PR ready for a human.",
+  "implementation": "agent",
+  "agent": "prompt.md",
+  "requires": [
+    "board",
+    "codehost",
+    "publishing"
+  ],
+  "schedule": "0,20,30,50 * * * *",
+  "timeoutSecs": 1800,
+  "skills": ["implementation-verifiable-output", "implementation-walkthrough"],
+  "verification": [
+    {"script": "ci_green.py"},
+    {"skill": "reviews-converged"},
+    {"skill": "agent-review"},
+    {"skill": "risk"}
+  ]
+}

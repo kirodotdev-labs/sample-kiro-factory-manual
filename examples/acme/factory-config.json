@@ -1,0 +1,83 @@
+{
+  "_README": "Example instance for a fictitious project, Acme Widgets. The Manual's tests render it; a new adopter copies this directory and replaces every value.",
+  "_schema": 3,
+  "instance": {
+    "name": "acme"
+  },
+  "repo": {
+    "slug": "acme-corp/widgets",
+    "defaultBranch": "main"
+  },
+  "integrations": {
+    "board": {
+      "use": "github",
+      "boardId": "acme-corp/widgets",
+      "scopeLabel": "factory",
+      "columns": {"intake": "intake", "review": "review", "release": "release"},
+      "botLogins": ["acme-factory"]
+    },
+    "codehost": {
+      "use": "github",
+      "botLogins": ["acme-factory"]
+    },
+    "publishing": {
+      "use": "s3",
+      "bucket": "acme-factory-pages",
+      "baseUrl": "https://pages.example.com/",
+      "region": "us-west-2"
+    },
+    "notifications": {
+      "feed": {
+        "use": "slack-workflow",
+        "webhookFile": "~/.secrets/acme-feed-webhook",
+        "payloadVariable": "Content"
+      },
+      "operator": {
+        "use": "acme-chat",
+        "webhookFile": "~/.secrets/acme-chat-webhook"
+      }
+    }
+  },
+  "workers": {
+    "triage": {
+      "schedule": "0 * * * *"
+    },
+    "design": {
+      "verification": [{"script": "ci_green.py", "enabled": false}]
+    },
+    "implement": {
+      "schedule": "15,45 * * * *",
+      "timeoutSecs": 3600,
+      "verification": [{"script": "ci_green.py", "enabled": false}, {"script": "scripts/run_tests.sh"}],
+      "skills": [
+        "widgets-testing"
+      ]
+    },
+    "release": {
+      "enabled": true,
+      "settings": {
+        "channels": ["merged", "beta", "stable"]
+      }
+    },
+    "monitor": {
+      "enabled": true
+    },
+    "discover": {
+      "enabled": true
+    },
+    "report": {
+      "enabled": true
+    },
+    "flaky-tests": {
+      "implementation": "agent",
+      "agent": "prompts/flaky-tests.md",
+      "schedule": "0 8 * * 1",
+      "requires": [
+        "board"
+      ],
+      "skills": [
+        "widgets-testing"
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "description": "File new board items from what the factory observed: monitor follow-ups and learn's product findings.",
+  "enabled": false,
+  "implementation": "agent",
+  "agent": "prompt.md",
+  "requires": [
+    "board",
+    "publishing"
+  ],
+  "schedule": "50 9 * * *",
+  "timeoutSecs": 1800
+}
