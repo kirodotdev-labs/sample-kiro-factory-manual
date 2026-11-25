@@ -26,7 +26,8 @@ CloudFront. Each run gets its AWS credentials from a token vending machine, scop
   the Kiro console create a profile on the instance, subscribe the user directly (a group
   subscription can take a day), turn on API keys, and mint one.
 - **A GitHub App** as the factory's account (README, Security, for its permissions, plus Checks
-  read), installed on the repo, with its id, installation id and a private key. It must hold
+  read, and on an organization's repo Members read, with `members: 'read'` in `githubPermissions`),
+  installed on the repo, with its id, installation id and a private key. It must hold
   everything `githubPermissions` asks for: GitHub refuses a token that asks for more, so every run
   of that worker fails. The token vending machine keeps the key and gives runs installation tokens
   limited to the repo, each lasting an hour, so no run holds the App's key. `botLogins` is `<app slug>[bot]`.
